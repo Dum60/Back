@@ -47,7 +47,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/home", "/registration/**", "/companiesTest.html").permitAll()
+                        .requestMatchers("/registration/**", "/login/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().permitAll())
                         .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
